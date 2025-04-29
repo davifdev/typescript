@@ -5,3 +5,10 @@ function addOrConcat(a: number | string, b: number | string) {
 
 console.log(addOrConcat(10, 5));
 console.log(addOrConcat("10", "5"));
+
+function selectColor(cor: "Amarelo" | "Vermelho" | "Azul" | "Verde") {
+  return cor;
+}
+
+const color = selectColor("Vermelho");
+console.log(color);

@@ -5,7 +5,7 @@ const dataClient2: readonly [string, string, number] = [
   24,
 ];
 const dataClient3: readonly [string, string, number?] = ["Davi", "Fernandes"];
-const dataClient4: readonly [string, number, ...string[]] = ["Davi", 24];
+const dataClient4: readonly [string, number, ...string[]] = ["Davi", 24, "1", "2", "3", "4", "5", "6"];
 
 console.log(dataClient1);
 console.log(dataClient2);

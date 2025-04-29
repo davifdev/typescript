@@ -23,7 +23,7 @@ function squareOf(x: any) {
 const squareOfTwoNum = squareOf(2);
 
 if (squareOfTwoNum === null) {
-  console.log("Conta Inválida!")
+  console.log("Conta Inválida!");
 } else {
   console.log(squareOfTwoNum);
 }

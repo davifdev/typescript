@@ -13,10 +13,4 @@ const person = {
 
 console.log(person.name);
 
-function selectColor(cor: "Amarelo" | "Vermelho" | "Azul" | "Verde") {
-  return cor;
-}
-
-const color = selectColor("Vermelho");
-console.log(color);
 export { x };

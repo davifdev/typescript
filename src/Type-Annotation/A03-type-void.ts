@@ -14,3 +14,5 @@ const person1: { name: string; lastName: string; showName(): void } = {
 };
 
 person1.showName();
+
+export { noReturn };

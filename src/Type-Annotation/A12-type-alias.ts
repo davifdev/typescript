@@ -23,7 +23,7 @@ function setPreferColor(person: Person, cor: PreferColors): Person {
   return { ...person, favoriteColor: cor };
 }
 
-const result = setPreferColor(person, "Vermelho");
+const result = setPreferColor(person, "Verde");
 console.log(result);
 
 export { person };

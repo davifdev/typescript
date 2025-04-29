@@ -10,6 +10,8 @@ enum Cores {
   CINZA = 5,
 }
 
+console.log(Cores);
+
 function chosseTheColor(color: Cores): void {
   console.log(Cores[color]);
 }

@@ -2,4 +2,6 @@ function greet(msg: string) {
   return msg;
 }
 
-greet("a");
+console.log(greet("a"));
+
+export { greet };
