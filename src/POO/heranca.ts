@@ -1,43 +1,43 @@
-export class Pessoa {
+export class Person {
   constructor(
-    public name: string,
-    public lastName: string,
-    private idade: number,
-    protected cpf: string
+    public readonly name: string,
+    public readonly lastName: string,
+    public readonly age: number,
+    protected readonly cpf: string
   ) {}
 
-  public getIdade(): number {
-    return this.idade;
+  getName(): string {
+    return this.name;
   }
 
-  public getCpf(): string {
+  getAge(): number {
+    return this.age;
+  }
+
+  getCpf(): string {
     return this.cpf;
   }
 
-  public getNameComplete(): string {
+  getNameComplete(): string {
     return this.name + " " + this.lastName;
   }
 }
 
-export class Student extends Pessoa {
-  constructor(name: string, lastName: string, idade: number, cpf: string) {
-    super(name, lastName, idade, cpf);
-  }
-
-  public getNameComplete(): string {
-    console.log("Executando antes");
+class Client extends Person {
+  getNameComplete(): string {
+    console.log("Executar Antes");
     return super.getNameComplete();
   }
 }
 
-export class Client extends Pessoa {
-  public getNameComplete(): string {
-    return "Cliente: " + this.name + " " + this.lastName;
+class Student extends Person {
+  getNameComplete(): string {
+    return "Client " + this.name + " " + this.lastName;
   }
 }
 
-const student = new Student("Davi", "Fernandes", 24, "000.000.000-00");
-const client = new Client("Robson", "Pinto", 29, "000.000.000-00");
+const client = new Client("Davi", "Fernandes", 24, "000.000.000-00");
+const student = new Student("Marta", "Silva", 33, "111.111.111-11");
 
-console.log(student.getNameComplete());
 console.log(client.getNameComplete());
+console.log(student.getNameComplete());

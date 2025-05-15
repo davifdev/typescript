@@ -1,20 +1,20 @@
 export class Person {
   constructor(
-    private name: string,
-    private lastName: string,
-    private idade: number,
+    private readonly name: string,
+    private readonly lastName: string,
+    private readonly age: number,
     private _cpf: string
   ) {}
 
-  get cpf() {
-    return this._cpf;
+  get cpf(): string {
+    return this._cpf.replace(/\D/g, "");
   }
 
-  set cpf(valor: string) {
-    this._cpf = valor;
+  set cpf(cpf: string) {
+    this._cpf = cpf;
   }
 }
 
-const person = new Person("Davi", "Fernandes", 24, "000.000.000-00");
-person.cpf = "709.576.641-09"
-console.log(person.cpf);
+const person1 = new Person("Davi", "Fernandes", 24, "000.000.000-00");
+person1.cpf = "111.111.111-11";
+console.log(person1.cpf);

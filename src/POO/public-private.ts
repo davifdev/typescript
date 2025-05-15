@@ -1,37 +1,30 @@
-export class Empresa {
-  public readonly nome: string;
-  private readonly colaboradores: Colaborador[] = [];
+export class Enterprise {
+  public readonly name: string;
+  private readonly collaborators: Collaborators[] = [];
   protected readonly cnpj: string;
 
-  constructor(nome: string, cnpj: string) {
-    this.nome = nome;
+  constructor(name: string, cnpj: string) {
+    this.name = name;
     this.cnpj = cnpj;
   }
 
-  public addColaborador(colaborador: Colaborador): void {
-    this.colaboradores.push(colaborador);
+  addNewCollaborators(collaborator: Collaborators) {
+    this.collaborators.push(collaborator);
   }
 
-  public mostrarColaboradores(): void {
-    for (const colaborador of this.colaboradores) {
-      console.log(colaborador);
+  showCollaborators(): void {
+    for (const collaborator of this.collaborators) {
+      console.log(collaborator);
     }
   }
 }
 
-export class Colaborador {
-  constructor(
-    public readonly nome: string,
-    public readonly sobrenome: string
-  ) {}
+export class Collaborators {
+  constructor(public readonly name: string, public readonly lastName: string) {}
 }
 
-const empresa1 = new Empresa("DFL Software", "40.109.658/0057-20");
-const colaborador1 = new Colaborador("Davi", "Fernandes");
-const colaborador2 = new Colaborador("Francisca", "Lima");
-const colaborador3 = new Colaborador("Robson", "Lima");
-empresa1.addColaborador(colaborador1);
-empresa1.addColaborador(colaborador2);
-empresa1.addColaborador(colaborador3);
+const DFLSoftware = new Enterprise("DFLSoftware", "00.00.00/0001-00");
+const collaborator1 = new Collaborators("Davi", "Fernandes");
 
-empresa1.mostrarColaboradores();
+DFLSoftware.addNewCollaborators(collaborator1);
+DFLSoftware.showCollaborators();

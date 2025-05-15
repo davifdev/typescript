@@ -1,7 +1,7 @@
 export class Enterprise {
   public readonly name: string;
+  public readonly cnpj: string;
   private readonly collaborators: Collaborators[] = [];
-  protected readonly cnpj: string;
 
   constructor(name: string, cnpj: string) {
     this.name = name;
@@ -11,23 +11,39 @@ export class Enterprise {
   addNewCollaborator(collaborator: Collaborators) {
     this.collaborators.push(collaborator);
   }
+
+  showCollaborators(): void {
+    for (const collaborator of this.collaborators) {
+      console.log(collaborator);
+    }
+  }
 }
 
 class Collaborators {
-  constructor(public readonly name: string, public readonly lastName: string) {}
+  constructor(
+    public name: string,
+    public lastName: string,
+    public age: number,
+    public role: string
+  ) {}
 }
 
-const branch = new Enterprise("DFL Software", "44.567.459/0001-74");
-const colaborator1 = new Collaborators("Davi", "Fernandes");
-const colaborator2 = new Collaborators("Robson", "Lima");
-const colaborator3 = new Collaborators("Arlindo", "Pereira");
+const enterprise = new Enterprise("DFLSoftware", "00.00.00/000-00");
+const collaborator1 = new Collaborators(
+  "Davi",
+  "Fernandes",
+  24,
+  "Frontend Developer"
+);
+const collaborator2 = new Collaborators("Robson", "Fernandes", 24, "DevOps");
 
-branch.addNewCollaborator(colaborator1);
-branch.addNewCollaborator(colaborator2);
-branch.addNewCollaborator(colaborator3);
-branch.addNewCollaborator({
-  name: "Ana",
-  lastName: "Lima",
+enterprise.addNewCollaborator(collaborator1);
+enterprise.addNewCollaborator(collaborator2);
+enterprise.addNewCollaborator({
+  name: "Rafael",
+  lastName: "Silva",
+  age: 29,
+  role: "Backend Developer",
 });
 
-console.log(branch);
+enterprise.showCollaborators();
