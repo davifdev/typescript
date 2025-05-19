@@ -2,46 +2,60 @@ export abstract class Personagem {
   protected abstract emoji: string;
 
   constructor(
-    protected nome: string,
+    protected name: string,
     protected ataque: number,
     protected vida: number
   ) {}
 
   atacar(personagem: Personagem): void {
     this.bordao();
-    personagem.perderVida(this.ataque);
+    personagem.status(this.ataque);
   }
 
-  perderVida(ataque: number): void {
+  status(ataque: number) {
     this.vida -= ataque;
-    console.log(`${this.emoji} - ${this.nome} agora tem ${this.vida} de vida...`);
+
+    if (this.vida <= 0) {
+      console.log(`${this.emoji} - ${this.name} morreu`);
+      return;
+    }
+
+    console.log(
+      `${this.emoji} - ${this.name} agora tem ${this.vida} de vida...`
+    );
   }
 
   abstract bordao(): void;
 }
 
-export class Guerreira extends Personagem {
-  protected emoji = '\u{1F9DD}';
+class Guerreira extends Personagem {
+  protected emoji = "\u{1F9DD}";
 
   bordao(): void {
-    console.log(this.emoji + " Guereiraaa Avanteeee.....");
-  }
-}
-export class Monstro extends Personagem {
-  protected emoji = '\u{1F9DF}';
-
-  bordao(): void {
-    console.log(this.emoji + " ARGHWAGHRHWHEWGEHWAGEAWEHG...");
+    console.log(this.emoji + " Xennaaa Guerreiraaaaaaa !!");
   }
 }
 
-const guerreira = new Guerreira("Guerreira", 100, 1000);
-const monstro = new Monstro("Monstro", 87, 1000);
+class Monstro extends Personagem {
+  protected emoji = "\u{1F9DF}";
+  bordao(): void {
+    console.log(this.emoji + " ARGWWGWARGHWWWWARGHWEWEA");
+  }
+}
+
+const guerreira = new Guerreira("Xena", 100, 800);
+const monstro = new Monstro("Godzilla", 87, 1000);
 
 guerreira.atacar(monstro);
+monstro.atacar(guerreira);
 guerreira.atacar(monstro);
+monstro.atacar(guerreira);
 guerreira.atacar(monstro);
-
+monstro.atacar(guerreira);
+monstro.atacar(guerreira);
+monstro.atacar(guerreira);
+monstro.atacar(guerreira);
+monstro.atacar(guerreira);
 monstro.atacar(guerreira);
 monstro.atacar(guerreira);
 monstro.atacar(guerreira);

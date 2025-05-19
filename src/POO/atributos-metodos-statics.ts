@@ -1,30 +1,22 @@
 export class Person {
-  static agePattern = 0;
-  static cpfPattern = "111.111.111-11";
+  static agePattern: number = 24;
+  static cpfPattern: string = "000.000.000-00";
 
   constructor(
-    private readonly name: string,
-    private readonly lastName: string,
-    private readonly age: number,
-    private cpf: string
+    public readonly name: string,
+    public readonly lastName: string,
+    public readonly age: number,
+    public readonly cpf: string
   ) {}
 
   static greet(): void {
-    console.log("Hello!");
+    console.log("Hello World");
   }
 
   static createPerson(name: string, lastName: string): Person {
     return new Person(name, lastName, Person.agePattern, Person.cpfPattern);
   }
-
-  normalMethod(): void {
-    console.log(Person.agePattern, Person.cpfPattern);
-  }
 }
 
-const person1 = new Person("Davi", "Fernandes", 24, "000.000.000-00");
-const person2 = Person.createPerson("Davi", "Fernandes");
-person1.normalMethod();
-console.log(person2);
-console.log(Person.agePattern);
-console.log(Person.cpfPattern);
+const person1 = Person.createPerson("Davi", "Fernandes");
+console.log(person1);
