@@ -1,15 +1,16 @@
 export class Carro {
-  private readonly motor = new Motor();
-  
-  ligar(): void {
-    this.motor.ligar();
-  }
-  parar(): void {
-    this.motor.parar();
+  private motor: Motor = new Motor();
+
+  acelerar(): void {
+    this.motor.acelerar();
   }
 
   freiar(): void {
     this.motor.freiar();
+  }
+
+  ligar(): void {
+    this.motor.ligar();
   }
 
   desligar(): void {
@@ -18,24 +19,26 @@ export class Carro {
 }
 
 class Motor {
-  ligar(): void {
-    console.log("Motor está ligando...");
-  }
-  parar(): void {
-    console.log("Motor está parado...");
+  acelerar(): void {
+    console.log("Motor está acelerando");
   }
 
   freiar(): void {
-    console.log("Motor está freiando...");
+    console.log("Motor está freiando");
+  }
+
+  ligar(): void {
+    console.log("Motor está ligado");
   }
 
   desligar(): void {
-    console.log("Motor está desligando...");
+    console.log("Motor está desligado");
   }
 }
 
 const carro = new Carro();
+
+carro.acelerar();
+carro.freiar();
 carro.ligar();
 carro.desligar();
-carro.freiar();
-carro.parar();

@@ -1,9 +1,8 @@
 export class Escritor {
   private _ferramenta: Ferramenta | null = null;
+  constructor(public _nome: string) {}
 
-  constructor(private _nome: string) {}
-
-  get nome() {
+  get nome(): string {
     return this._nome;
   }
 
@@ -11,17 +10,22 @@ export class Escritor {
     this._nome = nome;
   }
 
-  get ferramenta(): Ferramenta | null {
-    return this._ferramenta;
+  get ferramenta(): void {
+    if (!this._ferramenta) {
+      console.log("Você não possui uma ferramenta!");
+      return;
+    }
+
+    console.log(`A sua ferramenta é ${this._ferramenta.nome}`);
   }
 
   set ferramenta(ferramenta: Ferramenta) {
     this._ferramenta = ferramenta;
   }
 
-  escrever(): void {
+  escrever() {
     if (!this._ferramenta) {
-      console.log("Não posso escrever sem uma ferramenta!");
+      console.log("Não é possível escrever sem uma ferramenta");
       return;
     }
 
@@ -29,7 +33,7 @@ export class Escritor {
   }
 }
 
-abstract class Ferramenta {
+export abstract class Ferramenta {
   constructor(private _nome: string) {}
 
   get nome(): string {
@@ -51,14 +55,10 @@ class MaquinaEscrever extends Ferramenta {
   }
 }
 
-const escritor = new Escritor("Leandro Damião");
-const caneta = new Caneta("Caneta Bic");
-const maquinaEscrever = new MaquinaEscrever("Máquina Mondial");
-
-escritor.nome = "Roberval Perreira";
-console.log(escritor.nome);
-caneta.escrever();
-maquinaEscrever.escrever();
+const escritor = new Escritor("Chico Buarque");
+const caneta = new Caneta("BIC");
+const maquinaEscrever = new MaquinaEscrever("Mondial");
 escritor.ferramenta = caneta;
-
 escritor.escrever();
+maquinaEscrever.escrever();
+
