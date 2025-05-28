@@ -8,6 +8,7 @@ const coresObj = {
   preto: "BLACK",
   roxo: "PURPLE",
   cinza: "GRAY",
+  marrom: "BROWN"
 };
 
 function traduzirCor(cor: CoresChaves, cores: CoresObj) {
