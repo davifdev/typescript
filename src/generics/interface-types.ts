@@ -1,33 +1,45 @@
-interface PersonProtocol<T = string, U = number> {
+interface Person<T = string, U = number> {
   name: T;
   lastName: T;
   age: U;
 }
 
-type PersonProtocol2<T, U> = {
-  name: T;
-  lastName: T;
-  age: U;
-};
-
-export const person: PersonProtocol2<string, number> = {
-  name: "Davi",
-  lastName: "Fernandes",
-  age: 24,
-};
-
-const person1: PersonProtocol<number, number> = {
-  name: 1,
-  lastName: 2,
-  age: 24,
-};
-
-const person2: PersonProtocol = {
+const person: Person<string, number> = {
   name: "Davi",
   lastName: "Fernandes",
   age: 24,
 };
 
 console.log(person);
-console.log(person1);
+
+const person2: Person<string, string> = {
+  name: "Robson",
+  lastName: "Pereira",
+  age: "28",
+};
+
 console.log(person2);
+
+const person3: Person = {
+  name: "Robson",
+  lastName: "Pereira",
+  age: 28,
+};
+
+console.log(person3);
+
+type Car<T = string, U = number> = {
+  brand: T,
+  year: U,
+  km: U,  
+} 
+
+const car1: Car = {
+  brand: "Fiat",
+  year: 1947,
+  km: 500000
+}
+
+console.log(car1);
+
+export default 1;

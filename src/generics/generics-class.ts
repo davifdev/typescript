@@ -1,9 +1,9 @@
 export class Stack<T> {
-  private count = 0;
-  private elements: { [key: number]: T } = {};
+  public count = 0;
+  private _elements: { [key: number]: T } = {};
 
   push(element: T): void {
-    this.elements[this.count] = element;
+    this._elements[this.count] = element;
     this.count++;
   }
 
@@ -11,8 +11,9 @@ export class Stack<T> {
     if (this.isEmpty()) return;
 
     this.count--;
-    const element = this.elements[this.count];
-    delete this.elements[this.count];
+
+    const element = this._elements[this.count];
+    delete this._elements[this.count];
     return element;
   }
 
@@ -20,13 +21,9 @@ export class Stack<T> {
     return this.count === 0;
   }
 
-  length(): number {
-    return this.count;
-  }
-
   showStack(): void {
-    for (const key in this.elements) {
-      console.log(this.elements[key]);
+    for (const key in this._elements) {
+      console.log(this._elements[key]);
     }
   }
 }
@@ -36,10 +33,7 @@ stack.push("Elemento1");
 stack.push("Elemento2");
 stack.push("Elemento3");
 stack.push("Elemento4");
-const element = stack.pop();
 stack.showStack();
-console.log(stack.length());
-console.log(element);
 
 while (!stack.isEmpty()) {
   console.log(stack.pop());

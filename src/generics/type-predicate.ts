@@ -1,10 +1,10 @@
-function isNumber(value: unknown): value is number {
+export function isNumber(value: unknown): value is number {
   return typeof value === "number";
 }
 
-export function sum<T>(...args: T[]): number {
-  const result = args.reduce((acc, value) => {
-    if (isNumber(acc) && isNumber(value)) {
+function sum<T>(...nums: T[]): number {
+  const result = nums.reduce((acc, value) => {
+    if (isNumber(value)) {
       return acc + value;
     }
 
@@ -14,4 +14,5 @@ export function sum<T>(...args: T[]): number {
   return result;
 }
 
-console.log(sum(1, 2, 3));
+const result = sum(1, 2, 3, 4, 5, 6);
+console.log(result);

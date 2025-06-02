@@ -1,18 +1,19 @@
-type FnCallback = (item: string) => string;
+const arrString = ["a", "b", "c", "d", "e", "f"];
 
-const mapString = (arr: string[], callbackFn: FnCallback) => {
-  const newArr: string[] = [];
+type FnCallbackType<T> = (value: T, index?: number, array?: T[]) => T;
+
+const myMap = <T>(arr: T[], fnCallback: FnCallbackType<T>) => {
+  const newArr: T[] = [];
 
   for (let index = 0; index < arr.length; index++) {
-    newArr.push(callbackFn(arr[index]));
+    newArr.push(fnCallback(arr[index]));
   }
 
   return newArr;
 };
 
-const fruits = ["Laranja", "Pêra", "Uva"];
-const arrMaped = mapString(fruits, (item: string) => {
-  return item.toUpperCase();
-});
+const result = myMap(arrString, (value) => value.toUpperCase());
 
-console.log(arrMaped);
+console.log(result);
+
+export default 1;

@@ -1,21 +1,23 @@
-type FilterCallback<T> = (value: T, index?: number, array?: T[]) => boolean;
+const arrNums: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-export function meuFilter<T>(array: T[], callbackFn: FilterCallback<T>): T[] {
-  const newArray = [];
+console.log(arrNums.filter((value) => value < 6));
 
-  for (let index = 0; index < array.length; index++) {
-    if (callbackFn(array[index])) {
-      newArray.push(array[index]);
+type FnCallbackType<T> = (value: T, index?: number, array?: T[]) => boolean;
+
+const myFilter = <T>(arr: T[], fnCallback: FnCallbackType<T>): T[] => {
+  const newArr: T[] = [];
+
+  for (let index = 0; index < arr.length; index++) {
+    if (fnCallback(arr[index])) {
+      newArr.push(arr[index]);
     }
   }
 
-  return newArray;
-}
+  return newArr;
+};
 
-const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const result = myFilter(arrNums, (value) => value < 6);
 
-const arrayFiltrado = array.filter((value) => value < 5);
-console.log(arrayFiltrado);
+console.log(result);
 
-const meuArrayFiltrado = meuFilter(array, (value) => value < 5);
-console.log(meuArrayFiltrado);
+export default 1;

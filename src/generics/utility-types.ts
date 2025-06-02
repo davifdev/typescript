@@ -17,9 +17,9 @@ type PersonProtocol = {
 type PersonRequired = Required<PersonProtocol>;
 
 const person1: PersonRequired = {
-  name: "Robson  ",
-  lastName: "Costa",
-  age: 28,
+  name: "Davi",
+  lastName: "Fernandes",
+  age: 24,
 };
 
 // console.log(person1);
@@ -28,9 +28,9 @@ const person1: PersonRequired = {
 type PersonPartial = Partial<PersonRequired>;
 
 const person2: PersonPartial = {
-  name: "Thalita",
-  lastName: "Silva",
-  age: 26,
+  name: "Roberta",
+  lastName: "Fernandes",
+  age: 29,
 };
 
 // console.log(person2);
@@ -66,8 +66,9 @@ type TipoExtract = Extract<ABC, CDE>;
 type AccountMongo = {
   _id: string;
   name: string;
-  lastName: string;
+  lastname: string;
   age: number;
+  role: string
 };
 
 type AccountApi = Pick<AccountMongo, Exclude<keyof AccountMongo, "_id">> & {
@@ -75,10 +76,11 @@ type AccountApi = Pick<AccountMongo, Exclude<keyof AccountMongo, "_id">> & {
 };
 
 const accountMongo: AccountMongo = {
-  _id: "daasff258f8d5has2d",
+  _id: "gh22aeqwe55984fadasd34qw8",
   name: "Davi",
-  lastName: "Fernandes",
+  lastname: "Fernandes",
   age: 24,
+  role: "Software Developer"
 };
 
 function mapAccount(accountMongo: AccountMongo): AccountApi {
@@ -86,7 +88,4 @@ function mapAccount(accountMongo: AccountMongo): AccountApi {
   return { ...accountData, id: _id };
 }
 
-const accountApi = mapAccount(accountMongo);
-console.log(accountApi);
-
-export default 1;
+console.log(mapAccount(accountMongo));
